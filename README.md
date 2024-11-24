@@ -5,27 +5,27 @@ It's a simple yet engaging way to test your logic and planning skills.
 
 
 How the Game Works
+
 Game Setup:
+- The game board is a 4x4 grid.
+- The main diagonal (from top-left to bottom-right) is pre-filled with the letter 'A'.
+- A randomized set of tiles, consisting of:
+- 5 'R's,
+- 5 'T's,
+- 2 additional 'A's, is shuffled and placed on the remaining grid cells.
 
-The game board is a 4x4 grid.
-The main diagonal (from top-left to bottom-right) is pre-filled with the letter 'A'.
-A randomized set of tiles, consisting of:
-5 'R's,
-5 'T's,
-2 additional 'A's, is shuffled and placed on the remaining grid cells.
 The Objective:
+-The goal is not to spell "RAT" anywhere on the board:
+-Horizontally (across rows),
+-Vertically (down columns),
+-Diagonally (on either diagonal).
 
-The goal is not to spell "RAT" anywhere on the board:
-Horizontally (across rows),
-Vertically (down columns),
-Diagonally (on either diagonal).
 Game Logic:
+- The tiles are placed randomly.
+- After setup, the program checks the grid for any occurrence of "RAT."
+- If "RAT" is detected, the game outputs a message letting you know.
 
-The tiles are placed randomly.
-After setup, the program checks the grid for any occurrence of "RAT."
-If "RAT" is detected, the game outputs a message letting you know.
 Game Output:
-
 The grid is displayed.
 A message indicates whether "RAT" was found or not.
 
