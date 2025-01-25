@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.Random;
 
 public class LettersPool {
-    private ArrayList<Character> letters;
+    private ArrayList<String> letters;
 
     public LettersPool() {
         letters = new ArrayList<>();
@@ -13,23 +13,23 @@ public class LettersPool {
 
     private void initializeLetters() {
         for (int i = 0; i < 5; i++) {
-            letters.add('R');
-            letters.add('T');
+            letters.add("R");
+            letters.add("T");
         }
         for (int i = 0; i < 6; i++) {
-            letters.add('A');
+            letters.add("A");
         }
     }
 
-    public char getRandomLetter() {
+    public String getRandomLetter() {
         Random random = new Random();
         return letters.remove(random.nextInt(letters.size()));
     }
 
-    public char[] getShuffledLetters() {
+    public String[] getShuffledLetters() {
         Collections.shuffle(letters);
 
-        char[] shuffledLetters = new char[letters.size()];
+        String[] shuffledLetters = new String[letters.size()];
 
         for (int i = 0; i < letters.size(); i++) {
             shuffledLetters[i] = letters.get(i);
@@ -39,8 +39,8 @@ public class LettersPool {
 
     }
     
-    public char getLetter(char letter) {
-        if (letters.remove((Character) letter)) { // Remove the specified letter
+    public String getLetter(String letter) {
+        if (letters.remove((String) letter)) { // Remove the specified letter
             return letter; // Return the removed letter
         } else {
             throw new IllegalArgumentException("Letter '" + letter + "' not found in the pool.");
@@ -52,10 +52,10 @@ public class LettersPool {
         int totalLetters = letters.size();
         
         int countR = 0, countA = 0, countT = 0;
-        for (char letter: letters) {
-            if (letter == 'R') countR++;
-            else if (letter == 'A') countA++;
-            else if (letter == 'T') countT++;
+        for (String letter: letters) {
+            if (letter == "R") countR++;
+            else if (letter == "A") countA++;
+            else if (letter == "T") countT++;
         }
         if (totalLetters > 0) {
             sb.append("R-").append(String.format("%.2f%%", (countR * 100.0 / totalLetters))).append(" ");

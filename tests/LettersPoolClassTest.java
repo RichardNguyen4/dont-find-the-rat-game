@@ -19,14 +19,14 @@ public class LettersPoolClassTest {
 
         // Remove 4 Charaters 
         for (int i = 0; i < 4; i++){
-            char removedLetter = lettersPool.getRandomLetter();
+            String removedLetter = lettersPool.getRandomLetter();
             System.out.println("Removed: " + removedLetter);
-            assertTrue(removedLetter == 'R' || removedLetter == 'A' || removedLetter == 'T', 
+            assertTrue(removedLetter == "R" || removedLetter == "A" || removedLetter == "T", 
             "Removed letter should be R, A, or T");
 
         }
 
-        char[] remainingLetters = lettersPool.getShuffledLetters();
+        String[] remainingLetters = lettersPool.getShuffledLetters();
         // Check the remaining
         assertEquals(12, remainingLetters.length, "Pool size after removing 4 letters should be 12");
         
@@ -40,16 +40,16 @@ public class LettersPoolClassTest {
             lettersPool.getRandomLetter();
     }
 
-    char[] remainingLetters = lettersPool.getShuffledLetters();
+    String[] remainingLetters = lettersPool.getShuffledLetters();
         int countR = 0, countA = 0, countT = 0;
 
         // Count remaining letters
-        for (char letter : remainingLetters) {
-            if (letter == 'R') {
+        for (String letter : remainingLetters) {
+            if (letter == "R") {
                 countR++;
-            } else if (letter == 'A') {
+            } else if (letter == "A") {
                 countA++;
-            } else if (letter == 'T') {
+            } else if (letter == "T") {
                 countT++;
             }
         } 
