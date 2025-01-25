@@ -41,10 +41,10 @@ public class GameBoard {
     }
 
     public void populateGrid(String letter, int position){
-        if (position < 0 || position > 16) {
-            throw new IllegalArgumentException("Position out of bounds for grid size.");
+        if (filledPositions.contains(position)) {
+            throw new IllegalArgumentException("Position " + position + " is already filled.");
         }
-        
+    
         int row = (position - 1) / GRID_SIZE;
         int col = (position - 1) % GRID_SIZE;
 
