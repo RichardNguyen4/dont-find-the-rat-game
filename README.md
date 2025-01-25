@@ -1,5 +1,5 @@
 # Don't Find the Rat
-** Don't Find the Rat is a fun and strategic tile-placement game built in Java. 
+Don't Find the Rat is a fun and strategic tile-placement game built in Java. 
 Inspired by Alex Cheddar's "Don't Find the Fox," this game challenges players to avoid forming a specific pattern on a 4x4 grid. 
 It's a simple yet engaging way to test your logic and planning skills.
 
