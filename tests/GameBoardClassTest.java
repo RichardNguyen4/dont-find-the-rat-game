@@ -1,6 +1,8 @@
 import org.junit.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
 public class GameBoardClassTest {
     @Test
         public void testInitialGameBoard(){
@@ -48,6 +50,15 @@ public class GameBoardClassTest {
             "Diagonal cell [" + i + "][" + i + "] should be 'A'");
         }
 
+            // Check the filled positions list
+        List<Integer> filledPositions = gameBoard.getFilledPositions();
+        List<Integer> expectedPositions = List.of(1, 6, 11, 16); // Expected positions
+
+        assertEquals(expectedPositions.size(), filledPositions.size(),
+            "The filled positions list should contain the correct number of entries.");
+        assertTrue(filledPositions.containsAll(expectedPositions),
+            "The filled positions list should match the expected positions.");
+
         String[] remainingLetters = lettersPool.getShuffledLetters();
         int countA = 0;
 
@@ -60,8 +71,5 @@ public class GameBoardClassTest {
         // there should be 2 'A's left in the pool (initially 6, 4 are removed so 2 left)
         assertEquals(2, countA, 
         "The pool should contain 2 remaining 'A's after populating the grid.");
-
-
     }
-
 }

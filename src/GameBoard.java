@@ -1,11 +1,15 @@
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class GameBoard {
     private static final int GRID_SIZE = 4;
     private String [][] grid;
+    private List<Integer> filledPositions;
 
     public GameBoard() {
         grid = new String[GRID_SIZE][GRID_SIZE];
+        filledPositions = new ArrayList<>();
         initializeGrid();
     }
 
@@ -13,11 +17,15 @@ public class GameBoard {
         return grid;
     }
 
+    public List<Integer> getFilledPositions() {
+        return filledPositions;
+    }
+
     private void initializeGrid(){
         int number = 1;
         for (int row = 0; row < GRID_SIZE; row++) {
             for (int col = 0; col < GRID_SIZE; col++) {
-                    grid[row][col] = String.valueOf(number); // Convert number to String
+                    grid[row][col] = String.valueOf(number);
                     number++;
                 }
             }
@@ -41,6 +49,8 @@ public class GameBoard {
         int col = (position - 1) % GRID_SIZE;
 
         grid[row][col] = letter;
+        filledPositions.add(position);
+
     }
 }
 
