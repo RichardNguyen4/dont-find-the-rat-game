@@ -1,7 +1,10 @@
 import org.junit.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class LettersPoolFunctionTest {
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+public class LettersPoolClassTest {
     @Test
     public void testInitialPoolSize(){
         LettersPool lettersPool = new LettersPool();
@@ -60,4 +63,34 @@ public class LettersPoolFunctionTest {
         assertTrue(countA <= 6, "Remaining A count should not exceed 6");
         assertTrue(countT <= 5, "Remaining T count should not exceed 5");
     }
+
+    @Test
+    public void testDisplayLettersPool() {
+        // create a letters pool instance
+        LettersPool pool = new LettersPool();
+
+        // capture the printed output
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        // call the display letter pool method
+        pool.displayLetterPool();
+
+        System.setOut(System.out);
+
+        // get the captured output as a string
+        String output = outContent.toString().trim();
+
+        // check the expected value
+        assertTrue(output.contains("R-31.25%"), "Output should contain correct R percentage");
+        assertTrue(output.contains("A-37.50%"), "Output should contain correct A percentage");
+        assertTrue(output.contains("T-31.25%"), "Output should contain correct T percentage");
+
+        // check overall formatting
+        assertTrue(output.startsWith("Letter Pool: "), "Output should start with 'Letter Pool: '");
+        assertTrue(output.endsWith("T-31.25%"), "Output should end with the last letter's percentage");
+
+
+    }
+
 }

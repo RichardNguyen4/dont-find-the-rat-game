@@ -39,7 +39,33 @@ public class LettersPool {
 
     }
     
+    public char getLetter(char letter) {
+        if (letters.remove((Character) letter)) { // Remove the specified letter
+            return letter; // Return the removed letter
+        } else {
+            throw new IllegalArgumentException("Letter '" + letter + "' not found in the pool.");
+        }
+    }
 
+    public void displayLetterPool() {
+        StringBuilder sb = new StringBuilder("Letter Pool: ");
+        int totalLetters = letters.size();
+        
+        int countR = 0, countA = 0, countT = 0;
+        for (char letter: letters) {
+            if (letter == 'R') countR++;
+            else if (letter == 'A') countA++;
+            else if (letter == 'T') countT++;
+        }
+        if (totalLetters > 0) {
+            sb.append("R-").append(String.format("%.2f%%", (countR * 100.0 / totalLetters))).append(" ");
+            sb.append("A-").append(String.format("%.2f%%", (countA * 100.0 / totalLetters))).append(" ");;
+            sb.append("T-").append(String.format("%.2f%%", (countT * 100.0 / totalLetters))).append(" ");;
+        } else {
+            sb.append("The letter pool is empty.\n");
+        }
+        System.out.println(sb.toString().trim());
+    }
 
 
 
